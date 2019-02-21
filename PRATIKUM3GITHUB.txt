@@ -1,0 +1,173 @@
+mysql> CREATE DATABASE LESSON2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE LESSON2;
+Database changed
+mysql> CREATE TABLE MAHASISWA(NIM INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, NAMA VARCHAR (20) NOT NULL, ALAMAT_JALAN TEXT NOT NULL, KOTA VARCHAR (10) NOT NULL, KODE_POS INT(10) NOT NULL, NO_TLP INT(12) NOT NULL, JENKEL VARCHAR(20) NOT NULL, TANGGAL_LAHIR DATE NOT NULL, KODE_DOSEN INT(5) NOT NULL);
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> INSERT INTO MAHASISWA (NIM, NAMA, ALAMAT_JALAN, KOTA, KODE_POS, JENKEL, NO_TLP, TANGGAL_LAHIR, KODE_DOSEN)
+    -> VALUES ('11223344','Ari Santoso', 'Jl.adam tholib', 'Bekasi','17520','laki-laki','0216675','1998-10-22','111'), ('11223345','Ario Tholib', 'Jl.tengger', 'Cikarang','17530','laki-laki','0213335','1999-11-16','222'),('11223346','Dina Marlina', 'Jl.gatot subroto', 'Karawang','17540','Perempuan','0212275','1997-12-01','333'), ('11223347','Lisa Ayu', 'Jl.mawar', 'Bekasi','17520','Perempuan','0216624','1996-01-02','444'), ('11223348','Tiara Wahidah', 'Jl.merdeka 1', 'Bekasi','17520','Perempuan','0216622','1980-02-05','555'), ('11223349','Anton Sinaga', 'Jl.hayam wuruk', 'Cikarang','17530','laki-laki','0216612','1988-03-10','666');
+Query OK, 6 rows affected (0.08 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM MAHASISWA;
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN     | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso   | Jl.adam tholib   | Bekasi   |    17520 | 216675 | laki-laki | 1998-10-22    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger       | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223346 | Dina Marlina  | Jl.gatot subroto | Karawang |    17540 | 212275 | Perempuan | 1997-12-01    |        333 |
+| 11223347 | Lisa Ayu      | Jl.mawar         | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1     | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk   | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> UPDATE MAHASISWA SET TANGGAL_LAHIR='1979-08-31'
+    -> WHERE NIM='11223344';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM MAHASISWA;
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN     | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso   | Jl.adam tholib   | Bekasi   |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger       | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223346 | Dina Marlina  | Jl.gatot subroto | Karawang |    17540 | 212275 | Perempuan | 1997-12-01    |        333 |
+| 11223347 | Lisa Ayu      | Jl.mawar         | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1     | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk   | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+6 rows in set (0.00 sec)
+mysql> CREATE DATABASE LESSON2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE LESSON2;
+Database changed
+mysql> CREATE TABLE MAHASISWA(NIM INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, NAMA VARCHAR (20) NOT NULL, ALAMAT_JALAN TEXT NOT NULL, KOTA VARCHAR (10) NOT NULL, KODE_POS INT(10) NOT NULL, NO_TLP INT(12) NOT NULL, JENKEL VARCHAR(20) NOT NULL, TANGGAL_LAHIR DATE NOT NULL, KODE_DOSEN INT(5) NOT NULL);
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> INSERT INTO MAHASISWA (NIM, NAMA, ALAMAT_JALAN, KOTA, KODE_POS, JENKEL, NO_TLP, TANGGAL_LAHIR, KODE_DOSEN)
+    -> VALUES ('11223344','Ari Santoso', 'Jl.adam tholib', 'Bekasi','17520','laki-laki','0216675','1998-10-22','111'), ('11223345','Ario Tholib', 'Jl.tengger', 'Cikarang','17530','laki-laki','0213335','1999-11-16','222'),('11223346','Dina Marlina', 'Jl.gatot subroto', 'Karawang','17540','Perempuan','0212275','1997-12-01','333'), ('11223347','Lisa Ayu', 'Jl.mawar', 'Bekasi','17520','Perempuan','0216624','1996-01-02','444'), ('11223348','Tiara Wahidah', 'Jl.merdeka 1', 'Bekasi','17520','Perempuan','0216622','1980-02-05','555'), ('11223349','Anton Sinaga', 'Jl.hayam wuruk', 'Cikarang','17530','laki-laki','0216612','1988-03-10','666');
+Query OK, 6 rows affected (0.08 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM MAHASISWA;
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN     | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso   | Jl.adam tholib   | Bekasi   |    17520 | 216675 | laki-laki | 1998-10-22    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger       | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223346 | Dina Marlina  | Jl.gatot subroto | Karawang |    17540 | 212275 | Perempuan | 1997-12-01    |        333 |
+| 11223347 | Lisa Ayu      | Jl.mawar         | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1     | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk   | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> UPDATE MAHASISWA SET TANGGAL_LAHIR='1979-08-31'
+    -> WHERE NIM='11223344';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM MAHASISWA;
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN     | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso   | Jl.adam tholib   | Bekasi   |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger       | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223346 | Dina Marlina  | Jl.gatot subroto | Karawang |    17540 | 212275 | Perempuan | 1997-12-01    |        333 |
+| 11223347 | Lisa Ayu      | Jl.mawar         | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1     | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk   | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+------------------+----------+----------+--------+-----------+---------------+------------+
+6 rows in set (0.00 sec)
+mysql> SELECT * FROM MAHASISWA WHERE TANGGAL_LAHIR='1979-08-31';
++----------+-------------+----------------+--------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA        | ALAMAT_JALAN   | KOTA   | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+-------------+----------------+--------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso | Jl.adam tholib | Bekasi |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
++----------+-------------+----------------+--------+----------+--------+-----------+---------------+------------+
+1 row in set (0.02 sec)
+
+mysql> DELETE FROM MAHASISWA WHERE NIM='11223346';
+Query OK, 1 row affected (1.28 sec)
+
+mysql> SELECT * FROM MAHASISWA;
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN   | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| 11223344 | Ari Santoso   | Jl.adam tholib | Bekasi   |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger     | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223347 | Lisa Ayu      | Jl.mawar       | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1   | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MAHASISWA WHERE TANGGAL_LAHIR >='1996-01-02';
++----------+-------------+--------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA        | ALAMAT_JALAN | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+-------------+--------------+----------+----------+--------+-----------+---------------+------------+
+| 11223345 | Ario Tholib | Jl.tengger   | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223347 | Lisa Ayu    | Jl.mawar     | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
++----------+-------------+--------------+----------+----------+--------+-----------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MAHASISWA WHERE KOTA='BEKASI' AND JENKEL='PEREMPUAN';
++----------+---------------+--------------+--------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN | KOTA   | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+--------------+--------+----------+--------+-----------+---------------+------------+
+| 11223347 | Lisa Ayu      | Jl.mawar     | Bekasi |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1 | Bekasi |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
++----------+---------------+--------------+--------+----------+--------+-----------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT NAMA, ALAMAT_JALAN FROM MAHASISWA;
++---------------+----------------+
+| NAMA          | ALAMAT_JALAN   |
++---------------+----------------+
+| Ari Santoso   | Jl.adam tholib |
+| Ario Tholib   | Jl.tengger     |
+| Lisa Ayu      | Jl.mawar       |
+| Tiara Wahidah | Jl.merdeka 1   |
+| Anton Sinaga  | Jl.hayam wuruk |
++---------------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MAHASISWA ORDER BY NAMA DESC;
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN   | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| 11223348 | Tiara Wahidah | Jl.merdeka 1   | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223347 | Lisa Ayu      | Jl.mawar       | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223345 | Ario Tholib   | Jl.tengger     | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223344 | Ari Santoso   | Jl.adam tholib | Bekasi   |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MAHASISWA ORDER BY NAMA ASC;
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN   | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
+| 11223344 | Ari Santoso   | Jl.adam tholib | Bekasi   |    17520 | 216675 | laki-laki | 1979-08-31    |        111 |
+| 11223345 | Ario Tholib   | Jl.tengger     | Cikarang |    17530 | 213335 | laki-laki | 1999-11-16    |        222 |
+| 11223347 | Lisa Ayu      | Jl.mawar       | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1   | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MAHASISWA
+    -> WHERE TANGGAL_LAHIR BETWEEN '1980-02-05' AND '1996-01-05';
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| NIM      | NAMA          | ALAMAT_JALAN   | KOTA     | KODE_POS | NO_TLP | JENKEL    | TANGGAL_LAHIR | KODE_DOSEN |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+| 11223347 | Lisa Ayu      | Jl.mawar       | Bekasi   |    17520 | 216624 | Perempuan | 1996-01-02    |        444 |
+| 11223348 | Tiara Wahidah | Jl.merdeka 1   | Bekasi   |    17520 | 216622 | Perempuan | 1980-02-05    |        555 |
+| 11223349 | Anton Sinaga  | Jl.hayam wuruk | Cikarang |    17530 | 216612 | laki-laki | 1988-03-10    |        666 |
++----------+---------------+----------------+----------+----------+--------+-----------+---------------+------------+
+3 rows in set (0.08 sec)
