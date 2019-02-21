@@ -1,0 +1,175 @@
+mysql> CREATE DATABASE LESSON1;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE LESSON1;
+Database changed
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lesson1            |
+| lesson2            |
+| mahasiswa          |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> DROP DATABASE MAHASISWA;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lesson1            |
+| lesson2            |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE BIODATA (NAMA VARCHAR(20), ALAMAT TEXT);
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> DESC BIODATA;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAMA   | varchar(20) | YES  |     | NULL    |       |
+| ALAMAT | text        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.03 sec)
+
+mysql> ALTER TABLE BIODATA ADD COLUMN NIM INT(10) FIRST;
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NIM    | int(10)     | YES  |     | NULL    |       |
+| NAMA   | varchar(20) | YES  |     | NULL    |       |
+| ALAMAT | text        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> ALTER TABLE BIODATA CHANGE ALAMAT ALAMAT_JALAN VARCHAR(100);
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| NIM          | int(10)      | YES  |     | NULL    |       |
+| NAMA         | varchar(20)  | YES  |     | NULL    |       |
+| ALAMAT_JALAN | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.11 sec)
+
+mysql> ALTER TABLE BIODATA MODIFY ALAMAT_JALAN TINYTEXT;
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| NIM          | int(10)     | YES  |     | NULL    |       |
+| NAMA         | varchar(20) | YES  |     | NULL    |       |
+| ALAMAT_JALAN | tinytext    | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> ALTER TABLE BIODATA DROP ALAMAT_JALAN;
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| NIM   | int(10)     | YES  |     | NULL    |       |
+| NAMA  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql> ALTER TABLE BIODATA ADD PRIMARY KEY (NIM);
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| NIM   | int(10)     | NO   | PRI | 0       |       |
+| NAMA  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.03 sec)
+
+mysql> ALTER TABLE BIODATA DROP PRIMARY KEY;
+Query OK, 0 rows affected (0.28 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC BIODATA;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| NIM   | int(10)     | NO   |     | 0       |       |
+| NAMA  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.08 sec)
+
+mysql> INSERT INTO BIODATA (NIM, NAMA)
+    -> VALUES ('1122', 'JANA'), ('1123', 'AYU'), ('1124', 'IRMA'), ('1125', 'ANGGI') , ('1126', 'SUSI');
+Query OK, 5 rows affected (0.11 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM BIODATA;
++------+-------+
+| NIM  | NAMA  |
++------+-------+
+| 1122 | JANA  |
+| 1123 | AYU   |
+| 1124 | IRMA  |
+| 1125 | ANGGI |
+| 1126 | SUSI  |
++------+-------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE BIODATA SET NAMA='CICY'
+    -> WHERE NIM='1126';
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM BIODATA;
++------+-------+
+| NIM  | NAMA  |
++------+-------+
+| 1122 | JANA  |
+| 1123 | AYU   |
+| 1124 | IRMA  |
+| 1125 | ANGGI |
+| 1126 | CICY  |
++------+-------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM BIODATA WHERE NIM='1123';
+Query OK, 1 row affected (0.11 sec)
+
+mysql> SELECT * FROM BIODATA;
++------+-------+
+| NIM  | NAMA  |
++------+-------+
+| 1122 | JANA  |
+| 1124 | IRMA  |
+| 1125 | ANGGI |
+| 1126 | CICY  |
++------+-------+
+4 rows in set (0.00 sec)
