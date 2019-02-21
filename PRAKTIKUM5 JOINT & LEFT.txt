@@ -1,0 +1,164 @@
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 5.5.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE SEWA_MOBIL;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE SEWA_MOBIL;
+Database changed
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lesson1            |
+| lesson2            |
+| mysql              |
+| pegawai            |
+| performance_schema |
+| sewa_mobil         |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DATAMOBIL01
+    -> (KODE char(20) primary key,
+    -> JENIS varchar(20) not null,
+    -> MERK varchar(20) not null,
+    -> TARIF varchar(20) not null,
+    -> NOPOL varchar(20) not null);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> INSERT INTO DATAMOBIL01
+    -> VALUES
+    -> ('M001', 'SEDAN', 'BMW ES', '500000', 'BG1234AA'),
+    -> ('M002', 'SEDAN', 'HONDA', '350000', 'BG2345BB'),
+    -> ('M003', 'BUS', 'MERCHEDEZ', '1000000', 'BG3456CC'),
+    -> ('M004', 'BUS', 'DYNA', '800000', 'BG8433DD'),
+    -> ('M005', 'TRUCK', 'HYNO ZX', '1500000', 'BG4638EE'),
+    -> ('M006', 'TRUCK', 'DYNA X1', '1500000', 'BG8473FF');
+Query OK, 6 rows affected (0.09 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DATAMOBIL01;
++------+-------+-----------+---------+----------+
+| KODE | JENIS | MERK      | TARIF   | NOPOL    |
++------+-------+-----------+---------+----------+
+| M001 | SEDAN | BMW ES    | 500000  | BG1234AA |
+| M002 | SEDAN | HONDA     | 350000  | BG2345BB |
+| M003 | BUS   | MERCHEDEZ | 1000000 | BG3456CC |
+| M004 | BUS   | DYNA      | 800000  | BG8433DD |
+| M005 | TRUCK | HYNO ZX   | 1500000 | BG4638EE |
+| M006 | TRUCK | DYNA X1   | 1500000 | BG8473FF |
++------+-------+-----------+---------+----------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DATAMOBIL02
+    -> (KODE CHAR(25) PRIMARY KEY,
+    -> NAMA VARCHAR(20) NOT NULL,
+    -> KONTAK VARCHAR(20) NOT NULL,
+    -> ALAMAT VARCHAR(30) NOT NULL,
+    -> KOTA VARCHAR(20) NOT NULL,
+    -> KODE_POS INT(20) NOT NULL,
+    -> TELEPON INT(20) NOT NULL);
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> INSERT INTO DATAMOBIL02
+    -> VALUES
+    -> ('P001', 'PT FOX RIVER', 'HENDRA', 'JL.JEND SUDIRMAN 657', 'BENGKULU', '30245', '1234567'),
+    -> ('P002', 'CV FOXCON', 'IWAN', 'JL.WAHID HASYIM 743', 'JAKARTA', '73429', '234567'),
+    -> ('P003', 'PT FARMACOM', 'YANI', 'JL.AHMAD DAHLAN 45', 'LAMPUNG', '28349', '3334445');
+Query OK, 3 rows affected (0.11 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DATAMOBIL02;
++------+--------------+--------+----------------------+----------+----------+---------+
+| KODE | NAMA         | KONTAK | ALAMAT               | KOTA     | KODE_POS | TELEPON |
++------+--------------+--------+----------------------+----------+----------+---------+
+| P001 | PT FOX RIVER | HENDRA | JL.JEND SUDIRMAN 657 | BENGKULU |    30245 | 1234567 |
+| P002 | CV FOXCON    | IWAN   | JL.WAHID HASYIM 743  | JAKARTA  |    73429 |  234567 |
+| P003 | PT FARMACOM  | YANI   | JL.AHMAD DAHLAN 45   | LAMPUNG  |    28349 | 3334445 |
++------+--------------+--------+----------------------+----------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DATAMOBIL03
+    -> (NOFAKTUR_SEWA char(25) not null,
+    -> KODE_PELANGGAN varchar(25) not null,
+    -> TGL_SEWA varchar(25) not null,
+    -> KODE_MOBIL varchar(25) not null,
+    -> LAMA_SEWA varchar(25) not null,
+    -> UANG_MUKA varchar(25) not null);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> INSERT INTO DATAMOBIL03
+    -> VALUES
+    -> ('F001', 'P001', '2008-12-01', 'M001', '2', '200000'),
+    -> ('F001', 'P001', '2008-12-01', 'M003', '2', '200000'),
+    -> ('F002', 'P002', '2008-12-02', 'M002', '1', '100000');
+Query OK, 3 rows affected (0.09 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DATAMOBIL03;
++---------------+----------------+------------+------------+-----------+-----------+
+| NOFAKTUR_SEWA | KODE_PELANGGAN | TGL_SEWA   | KODE_MOBIL | LAMA_SEWA | UANG_MUKA |
++---------------+----------------+------------+------------+-----------+-----------+
+| F001          | P001           | 2008-12-01 | M001       | 2         | 200000    |
+| F001          | P001           | 2008-12-01 | M003       | 2         | 200000    |
+| F002          | P002           | 2008-12-02 | M002       | 1         | 100000    |
++---------------+----------------+------------+------------+-----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT DATAMOBIL01.KODE, DATAMOBIL01.JENIS, DATAMOBIL01.MERK, DATAMOBIL03.NOFAKTUR_SEWA, DATAMOBIL03.TGL_SEWA, DATAMOBIL03.LAMA_SEWA
+    -> FROM DATAMOBIL01
+    -> LEFT JOIN DATAMOBIL03
+    -> ON DATAMOBIL01.KODE=DATAMOBIL03.KODE_MOBIL;
++------+-------+-----------+---------------+------------+-----------+
+| KODE | JENIS | MERK      | NOFAKTUR_SEWA | TGL_SEWA   | LAMA_SEWA |
++------+-------+-----------+---------------+------------+-----------+
+| M001 | SEDAN | BMW ES    | F001          | 2008-12-01 | 2         |
+| M002 | SEDAN | HONDA     | F002          | 2008-12-02 | 1         |
+| M003 | BUS   | MERCHEDEZ | F001          | 2008-12-01 | 2         |
+| M004 | BUS   | DYNA      | NULL          | NULL       | NULL      |
+| M005 | TRUCK | HYNO ZX   | NULL          | NULL       | NULL      |
+| M006 | TRUCK | DYNA X1   | NULL          | NULL       | NULL      |
++------+-------+-----------+---------------+------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT DATAMOBIL03.NOFAKTUR_SEWA, DATAMOBIL02.NAMA, DATAMOBIL03.TGL_SEWA, DATAMOBIL01.JENIS, DATAMOBIL03. LAMA_SEWA, DATAMOBIL03.UANG_MUKA
+    -> FROM DATAMOBIL01
+    -> INNER JOIN DATAMOBIL03 ON DATAMOBIL01.KODE=DATAMOBIL03.KODE_MOBIL
+    -> INNER JOIN DATAMOBIL02 ON DATAMOBIL03.KODE_PELANGGAN=DATAMOBIL02.KODE;
++---------------+--------------+------------+-------+-----------+-----------+
+| NOFAKTUR_SEWA | NAMA         | TGL_SEWA   | JENIS | LAMA_SEWA | UANG_MUKA |
++---------------+--------------+------------+-------+-----------+-----------+
+| F001          | PT FOX RIVER | 2008-12-01 | SEDAN | 2         | 200000    |
+| F001          | PT FOX RIVER | 2008-12-01 | BUS   | 2         | 200000    |
+| F002          | CV FOXCON    | 2008-12-02 | SEDAN | 1         | 100000    |
++---------------+--------------+------------+-------+-----------+-----------+
+3 rows in set (0.08 sec)
+
+mysql> SELECT DATAMOBIL02.NAMA, DATAMOBIL02.KOTA, DATAMOBIL03.NOFAKTUR_SEWA, DATAMOBIL03.TGL_SEWA,DATAMOBIL03.LAMA_SEWA , DATAMOBIL03.UANG_MUKA
+    -> FROM DATAMOBIL02
+    -> LEFT JOIN DATAMOBIL03
+    -> ON DATAMOBIL02.KODE=DATAMOBIL03.KODE_PELANGGAN;
++--------------+----------+---------------+------------+-----------+-----------+
+| NAMA         | KOTA     | NOFAKTUR_SEWA | TGL_SEWA   | LAMA_SEWA | UANG_MUKA |
++--------------+----------+---------------+------------+-----------+-----------+
+| PT FOX RIVER | BENGKULU | F001          | 2008-12-01 | 2         | 200000    |
+| PT FOX RIVER | BENGKULU | F001          | 2008-12-01 | 2         | 200000    |
+| CV FOXCON    | JAKARTA  | F002          | 2008-12-02 | 1         | 100000    |
+| PT FARMACOM  | LAMPUNG  | NULL          | NULL       | NULL      | NULL      |
++--------------+----------+---------------+------------+-----------+-----------+
+4 rows in set (0.00 sec)
+
+mysql>
